@@ -23,5 +23,8 @@ permite que os clientes especifiquem exatamente quais dados querem
 eficiente na reduçao de solicitaçoes e no tamanho dos dados transferido
 flexivel e fortemente tipada, facilitando a evoluçao das APIs
 
-
+escolhendo tipo certo de API
+a escolha depende das necessidades especificas do projeto, dos recursos disponiveis e pela expertise da equipe
+RESTful é popilar pela simplicidade, SOAP é preferido para segurança e transaçoes complexas 
+enquando o GraphQl é ideal para aplicaçoes que requerem dados dinamicos e personalizados
 """
