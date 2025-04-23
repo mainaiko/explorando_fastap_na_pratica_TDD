@@ -1,10 +1,12 @@
 from datetime import datetime
-from contrib import BaseModel
-from sqlalchemy.orm import Mapped, mapped_column, String, Integer, Float
-from sqlalchemy import DateTime
+from contrib.models import BaseModel
+from categoria.models import CategoriaModel
+from centro_treinamento.models import CentroTreinamentoModels
+from sqlalchemy.orm import Mapped, mapped_column, String, Integer, Float, relationship
+from sqlalchemy import DateTime, ForeignKey
 
 
-class AtletaModel(BaseModel):
+class AtletaModels(BaseModel):
     __tablename__ = "atletas"
 
     pk_id: Mapped[int] = mapped_column(primary_key=True)
@@ -16,3 +18,7 @@ class AtletaModel(BaseModel):
     altura: Mapped[float] = mapped_column(Float, nullable=False)
     sexo: Mapped[str] = mapped_column(String(1), nullable=False)
     creat_at: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    categoria: Mapped[CategoriaModel] = relationship(back_populates="atleta")
+    categoria_id: Mapped[int] = mapped_column(ForeignKey("categorias.pk_id"))
+    centro_treinamento: Mapped[CentroTreinamentoModels] = relationship(back_populates="atleta")
+    centro_treinamento_id: Mapped[int] = mapped_column(ForeignKey("centro_treinamento.pk_id"))
