@@ -1,6 +1,6 @@
 from typing import Annotated
 from pydantic import Field, PositiveFloat
-from contrib import BaseSchema
+from contrib.schemas import BaseSchema
 
 class Atleta(BaseSchema):
     nome: Annotated[str, Field(description="Nome do atleta", examples="Joao", max_length=50)]

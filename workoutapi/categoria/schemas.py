@@ -1,6 +1,6 @@
 from typing import Annotated
-from pydantic import BaseModel, Field
-from contrib import BaseSchema
+from pydantic import Field
+from contrib.schemas import BaseSchema
 
 class Categoria(BaseSchema):
     modalidade: Annotated[str, Field(description="Nome da Modalidade", examples="Strongman", max_length=20)]

@@ -1,5 +1,5 @@
 from datetime import datetime
-from contrib.models import BaseModel
+from workoutapi.contrib.models import BaseModel
 from categoria.models import CategoriaModel
 from centro_treinamento.models import CentroTreinamentoModels
 from sqlalchemy.orm import Mapped, mapped_column, String, Integer, Float, relationship
@@ -12,7 +12,7 @@ class AtletaModels(BaseModel):
     pk_id: Mapped[int] = mapped_column(primary_key=True)
 
     nome: Mapped[str] = mapped_column(String(50), nullable=False)
-    cpf: Mapped[str] = mapped_column(String(11), nullable=False)
+    cpf: Mapped[str] = mapped_column(String(11), unique=True, nullable=False)
     idade: Mapped[int] = mapped_column(Integer, nullable=False)
     peso: Mapped[float] = mapped_column(Float, nullable=False)
     altura: Mapped[float] = mapped_column(Float, nullable=False)
